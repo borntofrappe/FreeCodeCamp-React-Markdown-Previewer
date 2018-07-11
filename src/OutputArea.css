@@ -1,0 +1,38 @@
+.OutputArea {
+  /* by default show the output area as a div container with the same width, background, border of the input component */
+  width: 80vw;
+  max-width: 675px;
+  margin: 1rem 0;
+  background: #fff;
+  border: 0.5rem solid hsl(208, 100%, 48%);
+  border-top-width: 1.5rem;
+  /* 
+  distance the text from the border of the text area
+  style the text to inherit the chosen font and have it display clearly within the boundaries of the text area
+  */
+  padding: 1rem 2rem;
+  font-size: 1.05rem;
+  line-height: 2;
+  /* position relative to absolute position the connected pseudo elements */
+  position: relative;
+}
+/* much alike the input area, include a circle and explanatory text with pseudo elements */
+.OutputArea:before {
+  position: absolute;
+  content: "";
+  top: -1em;
+  left: 0.5rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: #fff;
+}
+.OutputArea:after {
+  position: absolute;
+  content: "Preview - Markdown Here";
+  top: -1.75em;
+  left: 2rem;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+}

@@ -1,8 +1,8 @@
 In the README, I include the thought and development processes behind the project. I use locally `create-react-app` to set up a development environment,  and include in this repo the public and src folders. Alone they will not be able to finalize the project, but as I build the applications, these are the folders in which most of the work is done.
 
-<!-- To have immediate feedback online I also leverage codepen.
+To have immediate feedback online I also leverage codepen.
 
-Link to the work-in-progress pen right [here](). -->
+Link to the work-in-progress pen right [here](https://codepen.io/borntofrappe/pen/OwPdmZ).
 
 # Preface
 
@@ -54,3 +54,15 @@ At first it would behoove for the project to start with the simplest possible us
 **State**
 
 The application needs to manage state in the quality of text. Text which is included in text area, managed and displayed in the output, preview area. As learned in the freeCodeCamp curriculum, the text area can be created as a _controlled component_: a component which is tracked for changes in content/ state, such as when text is added to a text area. The component needs to update the state, which then triggers the correct rendering in the preview area.
+
+<!-- TODO: add notes on
+
+- react component structure
+- how to use the marked library (install, add as a dependency, import)
+- dangerouslySetInnerHTML
+
+ONLY THEN
+- add user stories to pass the fcc test suite
+
+The issue of styling the project comes after all the mentioned todos are completed
+-->
