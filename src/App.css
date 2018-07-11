@@ -1,0 +1,10 @@
+.App {
+  /*
+  center the iput and output areas horizontally 
+  display both of them in a single column layout
+  */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}

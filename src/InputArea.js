@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
-// import './InputArea.css';
+import React from 'react';
+import './InputArea.css';
 
-
-class InputArea extends Component {
-  render() {
-    return (
-      <div className="InputArea">
-        <textarea name="input" id="input"></textarea>
-      </div>
-    );
-  }
+// with a stateless functional component render the textarea, including the field and method passed through the parent component with props
+const InputArea = (props) => {
+  return(
+    <div className="InputArea">
+      <textarea name="input" id="input" value= { props.textarea } onChange= {props.handleChange}></textarea>
+    </div>
+  );
 }
 
 export default InputArea;

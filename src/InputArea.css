@@ -1,0 +1,65 @@
+.InputArea {
+  /*
+  spread the input area container to occupy a large portion of the screen
+  80vw and at most 675px wide
+  */
+  width: 80vw;
+  max-width: 675px;
+  /* set the area to be at least 400px tall (same for the textarea) */
+  min-height: 400px;
+  /* separate the input area from the output area */
+  margin: 1rem 0;
+  /* background which becomes the background of the text-area, once the default background is removed */
+  background: #fff;
+  border: 0.5rem solid hsl(208, 100%, 48%);
+  /* greater border top to emulate the top bar of a browser */
+  border-top-width: 1.5rem;
+  /* position relative to absolute position the connected pseudo elements */
+  position: relative;
+}
+
+.InputArea textarea {
+  /* spread the text area to occupy the entirety of the container  */
+  min-height: 400px;
+  width: 100%;
+  /* remove default options */
+  resize: none;
+  outline: none;
+  /* the background and border are presumed from the wrapping container */
+  background: none;
+  border: none;
+  /* 
+  distance the text from the border of the text area
+  style the text to inherit the chosen font and have it display clearly within the boundaries of the text area
+  */
+  padding: 1rem;
+  font-size: 1.05rem;
+  font-family: inherit;
+  color: inherit;
+  line-height: 2;
+}
+
+
+/* with a pseudo element, include a circle emulating an icon on a mac display
+with another pseudo element, incude explanatory text right next to it */
+.InputArea:before {
+  position: absolute;
+  content: "";
+  top: -1.12em;
+  left: 0.5rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.InputArea:after {
+  position: absolute;
+  content: "Editor - Type Here";
+  top: -1.45em;
+  left: 2rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
