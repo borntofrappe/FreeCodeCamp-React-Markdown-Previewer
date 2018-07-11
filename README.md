@@ -1,8 +1,8 @@
 In the README, I include the thought and development processes behind the project. I use locally `create-react-app` to set up a development environment,  and include in this repo the public and src folders. Alone they will not be able to finalize the project, but as I build the applications, these are the folders in which most of the work is done.
 
-<!-- To have immediate feedback online I also leverage codepen.
+To have immediate feedback online I also leverage codepen.
 
-Link to the work-in-progress pen right [here](). -->
+Link to the work-in-progress pen right [here](https://codepen.io/borntofrappe/pen/OwPdmZ).
 
 # Preface
 
