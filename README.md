@@ -1,4 +1,4 @@
-In this README, I include notes on the thought and development processes behind the project. 
+In this `README`, I include notes on the thought and development processes behind the project. 
 
 As I made use of `create-react-app` to set up a development environment, I will include the present repository the public and src folders. Alone they will not be able to finalize the project, but as I build the applications, these are the folders in which most of the work is done.
 
@@ -10,7 +10,7 @@ In the line of 'Front End Libraries Projects' for the _freeCodeCamp_ curriculum,
 
 It is an excellent project, in that it allows to practice existing knowledge in HTML, CSS and JS. At the same time it allows to include new technologies in [React](https://reactjs.org/) and the JavaScript library [Marked.js](https://github.com/markedjs/marked). All while building something functional, which can actually be used for note-taking efforts. 
 
-Almost every day, as I find myself tinkering with new projects, I start with a README file explaining the purpose of the effort which follows. Said README file is exactly written in markdown syntax, so I see the value of this application first hand.
+Almost every day, as I find myself tinkering with new projects, I start with a `README` file explaining the purpose of the effort which follows. Said `README` file is exactly written in markdown syntax, so I see the value of this application first hand.
 
 # Design
 
@@ -189,10 +189,27 @@ const OutputArea = (props) => {
 }
 ```
 
-<!-- TODO: add notes on
+## User Stories
 
-ONLY THEN
-- add user stories to pass the fcc test suite
+It was advisable to include this section at the top of the `README` file, but as I wanted to experiment with the technologies behind the project, I neglected the conditions set by freeCodeCamp in their test suite.
 
-The issue of styling the project comes after all the mentioned todos are completed
--->
+Several user-stories need to be fulfilled:
+
+- [ ] the `textarea` element has an `id="editor`;
+- [ ] the element in which the markdown syntax is displayed has an `id="preview"`
+- [ ] as text is included in the `#editor`, the `#preview` element is updated with the contents of the `textarea`
+- [ ] GitHub flavored markdown is rendered as HTML (with _Marked.js_)
+- [ ] by default, the `#editor` ought to contain markdown syntax for a few elements:
+  - a header (h1)
+  - a sub header (h2)
+  - a link 
+  - inline code
+  - code block
+  - a list item
+  - a blockquote
+  - an image
+  - bold text
+- [ ] the syntax present by default is rendered as HTML
+- [ ] a link in the `#preview` element opens a new tab to the URL link
+- [ ] carriage returns are rendered as line breaks, `br` elements
+
