@@ -2,7 +2,7 @@ In this `README`, I include notes on the thought and development processes behin
 
 As I made use of `create-react-app` to set up a development environment, I will include the present repository the public and src folders. Alone they will not be able to finalize the project, but as I build the applications, these are the folders in which most of the work is done.
 
-To have immediate feedback online I also leverage codepen. You can find the work-in-progress pen right [here](https://codepen.io/borntofrappe/pen/OwPdmZ).
+To have immediate feedback online I also leverage codepen. You can find the working pen right [here](https://codepen.io/borntofrappe/pen/OwPdmZ).
 
 # Preface
 
@@ -247,16 +247,12 @@ As suggested, a read through the documentation provides a possible solution for 
 
 Looking at the documentation, a renderer can be included while modifying the use of the _Marked.js_ library. Instead of including the `marked()` function, it is indeed possible to include a reference to the library, and have it build the function with the different options.
 
-```JS
-const markdown = require('marked');
-```
-
-This variable holds a reference to `marked`, and is capable to 1) generate the desired renderer function and 1) include the different options through the `setOptions()` method.
+`marked` holds a reference to the `marked()` function, and is capable to 1) generate the desired renderer function and 1) include the different options through the `setOptions()` method.
 
 One step at a time. For the renderer, a new instance can be created through the variable already defined.
 
 ```JS
-const renderer = new markdown.Renderer();
+const renderer = new marked.Renderer();
 ```
 
 This is an object which allows the specification of rules as to how HTML elements. For anchor link elements (the different available elements are listed in the [docs](https://marked.js.org/USING_PRO.md)), the `link` property allows to specify a function, to render anchor link elements as desired.
@@ -279,27 +275,25 @@ renderer.link = function(href, title, text) {
 This accounts for the creation of the `renderer` object fulfilling the project's user story. Once created, the object can be then included alonside the different options, through the aforementioned `setOptions()` function.
 
 ```JS
-markdown.setOptions();
+marked.setOptions();
 ```
 
 This function too accepts as argument an object, with the different options specified through the keys documented on the [library's page](https://marked.js.org/#/USING_ADVANCED.md#options).
 
 ```JS
-markdown.setOptions({
+marked.setOptions({
   breaks: true,
   renderer: renderer,
   xhtml: true
 });
 ```
 
-With this code, the markdown function is generated with the prescribed options. To display the correct syntax on the page, it is then a simple matter of passing the markdown syntax as the argument of the newly created `markdown()` function.
+With this code, the markdown function is generated with the prescribed options. To display the correct syntax on the page, it is then a simple matter of passing the markdown syntax as the argument of the newly crafted `marked()` function.
 
 ```JS
 return (
   // include the markdown result in the HTML of the div
-  <div className="OutputArea" id="preview" dangerouslySetInnerHTML={{ __html: markdown(props.textarea) }}>
+  <div className="OutputArea" id="preview" dangerouslySetInnerHTML={{ __html: marked(props.textarea) }}>
   </div>
 );
 ```
-
-_Small note_: with this appoach the `import` statement including `marked` at the top of the component is no longer required.
