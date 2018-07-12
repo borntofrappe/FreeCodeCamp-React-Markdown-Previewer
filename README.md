@@ -210,5 +210,96 @@ Several user-stories need to be fulfilled:
   - [x] an image
   - [x] bold text
 - [x] the syntax present by default is rendered as HTML
-- [ ] a link in the `#preview` element opens a new tab to the URL link
+- [x] a link in the `#preview` element opens a new tab to the URL link
 - [x] carriage returns are rendered as line breaks, `br` elements
+
+
+**Notes on user stories**
+
+The core of the project was accomplished without actually caring for the user stories. Even if most tests were practically left unfulfilled, this meant that the code base needed simple adjustments to create a passing project.
+
+Beside simple additions in terms of including `id`entifiers on the `textarea` and `div` elements, a more relevant modification required looking over the documentation of [Marked.js](https://marked.js.org/#/README.md#README.md) once more.
+
+In details, the `marked()` function required to include a particular set of options.
+
+The `marked()` function accepts, among many, one argument for the string which is to be interpreted using markdown syntax and one argument accepting advanced options to manage the way the markdown is compiled to HTML. This set of options is included with an object, specifying with different keys [different configurations](https://marked.js.org/#/USING_ADVANCED.md#options).
+
+For the project at hand, the following flags were included to pass the remaining tests:
+
+- breaks: true
+- xhtml: true
+
+Alongside the default options, mainly `gfm` which sets the GitHub flavored markdown specification, these allow to 1) include soft and hard breaks and 1) include self-closing tags for those elements that have no content (among which `<br/>`).
+
+```JS
+let markdown = marked(props.textarea, { breaks: true, xhtml : true });
+```
+
+**Last Issue**
+
+With the inclusion of `id` attributes and appropriate options, one remaining tests remains before the project can be considered completely closed.
+
+> OPTIONAL BONUS : When I click a link rendered by my markdown previewer, the link is opened up in a new tab (HINT: read the Marked.js docs for this one!)
+
+> AssertionError: All Links should target _blank: expected 1 to equal 0
+
+As suggested, a read through the documentation provides a possible solution for this last issu. Among the options, it is indeed possible to include a `renderer`, an object which allows to modify HTML elements and to include arbitrary strings/atributes. You can read moer about it [right here](https://marked.js.org/USING_PRO.md).
+
+Looking at the documentation, a renderer can be included while modifying the use of the _Marked.js_ library. Instead of including the `marked()` function, it is indeed possible to include a reference to the library, and have it build the function with the different options.
+
+```JS
+const markdown = require('marked');
+```
+
+This variable holds a reference to `marked`, and is capable to 1) generate the desired renderer function and 1) include the different options through the `setOptions()` method.
+
+One step at a time. For the renderer, a new instance can be created through the variable already defined.
+
+```JS
+const renderer = new markdown.Renderer();
+```
+
+This is an object which allows the specification of rules as to how HTML elements. For anchor link elements (the different available elements are listed in the [docs](https://marked.js.org/USING_PRO.md)), the `link` property allows to specify a function, to render anchor link elements as desired.
+
+```JS
+renderer.link = function(href, title, text) {}
+```
+
+This is a function accepting three arguments, for attributes typical of the element and returns the structure of the element itself. For the particular use case of the project, the `href` and `text` attributes are included as-is. In the opening `<a>` tag, the attribute of `target` is then added with a value of `_blank`.
+
+```JS
+renderer.link = function(href, title, text) {
+    return `
+            <a href=${href} target="_blank">
+              ${text}
+            </a>`;
+};
+```
+
+This accounts for the creation of the `renderer` object fulfilling the project's user story. Once created, the object can be then included alonside the different options, through the aforementioned `setOptions()` function.
+
+```JS
+markdown.setOptions();
+```
+
+This function too accepts as argument an object, with the different options specified through the keys documented on the [library's page](https://marked.js.org/#/USING_ADVANCED.md#options).
+
+```JS
+markdown.setOptions({
+  breaks: true,
+  renderer: renderer,
+  xhtml: true
+});
+```
+
+With this code, the markdown function is generated with the prescribed options. To display the correct syntax on the page, it is then a simple matter of passing the markdown syntax as the argument of the newly created `markdown()` function.
+
+```JS
+return (
+  // include the markdown result in the HTML of the div
+  <div className="OutputArea" id="preview" dangerouslySetInnerHTML={{ __html: markdown(props.textarea) }}>
+  </div>
+);
+```
+
+_Small note_: with this appoach the `import` statement including `marked` at the top of the component is no longer required.

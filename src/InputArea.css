@@ -45,10 +45,19 @@ with another pseudo element, incude explanatory text right next to it */
 .InputArea:before {
   position: absolute;
   content: "";
-  top: -1.12em;
-  left: 0.5rem;
-  width: 0.75rem;
+  /* set the circle half the size of the border-top */
   height: 0.75rem;
+  width: 0.75rem;
+  /* 
+  the circle is positioned by default in the top left corner of the textarea element
+  right below the border-top
+  to have the circle centered in the top border, elevate the pseudo element by 1.125rem 
+  computed as half the width (0.75rem/2 = 0.375), which positions the element halfway through the border-top
+  plus half the border-top-width (1.5rem/2 = 0.75rem)
+  0.375 + 0.75 = 1.125
+  */
+  top: -1.125rem;
+  left: 0.5rem;
   border-radius: 50%;
   background: #fff;
 }
@@ -56,7 +65,7 @@ with another pseudo element, incude explanatory text right next to it */
 .InputArea:after {
   position: absolute;
   content: "Editor - Type Here";
-  top: -1.45em;
+  top: -1.425rem;
   left: 2rem;
   color: #fff;
   font-weight: 700;
