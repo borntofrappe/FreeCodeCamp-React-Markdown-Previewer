@@ -8,7 +8,7 @@ const OutputArea = (props) => {
   let markdown = marked(props.textarea, {headerIds : false, smartypants: true});
   return (
     // include the markdown result in the HTML of the div
-    <div className="OutputArea" dangerouslySetInnerHTML={{ __html: markdown }}>
+    <div className="OutputArea" id="preview" dangerouslySetInnerHTML={{ __html: markdown }}>
     </div>
   );
 }

@@ -195,21 +195,20 @@ It was advisable to include this section at the top of the `README` file, but as
 
 Several user-stories need to be fulfilled:
 
-- [ ] the `textarea` element has an `id="editor`;
-- [ ] the element in which the markdown syntax is displayed has an `id="preview"`
-- [ ] as text is included in the `#editor`, the `#preview` element is updated with the contents of the `textarea`
-- [ ] GitHub flavored markdown is rendered as HTML (with _Marked.js_)
-- [ ] by default, the `#editor` ought to contain markdown syntax for a few elements:
-  - a header (h1)
-  - a sub header (h2)
-  - a link 
-  - inline code
-  - code block
-  - a list item
-  - a blockquote
-  - an image
-  - bold text
-- [ ] the syntax present by default is rendered as HTML
+- [x] the `textarea` element has an `id="editor`;
+- [x] the element in which the markdown syntax is displayed has an `id="preview"`
+- [x] as text is included in the `#editor`, the `#preview` element is updated with the contents of the `textarea`
+- [x] GitHub flavored markdown is rendered as HTML (with _Marked.js_)
+- [x] by default, the `#editor` ought to contain markdown syntax for a few elements:
+  - [x] a header (h1)
+  - [x] a sub header (h2)
+  - [x] a link 
+  - [x] inline code
+  - [x] code block
+  - [x] a list item
+  - [x] a blockquote
+  - [x] an image
+  - [x] bold text
+- [x] the syntax present by default is rendered as HTML
 - [ ] a link in the `#preview` element opens a new tab to the URL link
 - [ ] carriage returns are rendered as line breaks, `br` elements
-
