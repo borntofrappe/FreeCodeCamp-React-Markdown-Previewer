@@ -211,4 +211,4 @@ Several user-stories need to be fulfilled:
   - [x] bold text
 - [x] the syntax present by default is rendered as HTML
 - [ ] a link in the `#preview` element opens a new tab to the URL link
-- [ ] carriage returns are rendered as line breaks, `br` elements
+- [x] carriage returns are rendered as line breaks, `br` elements
