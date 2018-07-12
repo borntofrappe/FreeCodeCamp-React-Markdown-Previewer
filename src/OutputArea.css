@@ -12,7 +12,7 @@
   */
   padding: 1rem 2rem;
   font-size: 1.05rem;
-  line-height: 2;
+  line-height: 2.5;
   /* position relative to absolute position the connected pseudo elements */
   position: relative;
 }
@@ -35,4 +35,26 @@
   color: #fff;
   font-weight: 700;
   text-transform: uppercase;
+}
+/* the library highlights the code and blockquote elements ever so slightly
+define properties to markedly show the different semantic markup  */
+.OutputArea pre {
+  display: inline-block;
+  width: 100%;
+  overflow-x: scroll;
+}
+.OutputArea pre, .OutputArea p > code {
+  background: hsl(208, 84%, 80%);
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+}
+.OutputArea blockquote {
+  padding: 1rem 2rem;
+  font-style: italic;
+  background: hsl(208, 84%, 80%);
+  border-radius: 2px;
+}
+/* by default the image may overflow beyond the boundaries set by the container */
+.OutputArea img {
+  width: 100%;
 }
